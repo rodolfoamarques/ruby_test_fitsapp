@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TestApplication</title>
+    <title>FitsApp Test Application</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+
+    <!-- HEADER NAVBAR -->
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <nav>
+          <ul class="nav navbar-nav navbar-left">
+            <li><%= link_to "FitsApp Test", '#', id: "logo" %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Log in", '#' %></li>
+            <li><%= link_to "Sign Up", '#' %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- HEADER NAVBAR -->
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <%= yield %>
+    </div>
+    <!-- MAIN CONTENT -->
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <small class="left">
+        The FitsApp Test Application by Rodolfo Marques.
+      </small>
+      <small class="right">
+        <a href="https://github.com/rodolfoamarques/ruby_test_fitsapp">Project on GitHub</a>
+      </small>
+    </footer>
+    <!-- FOOTER -->
+
   </body>
 </html>
