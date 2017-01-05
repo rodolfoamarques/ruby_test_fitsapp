@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'chats/new'
+
   get 'users/new'
 
   root 'pages#home'
