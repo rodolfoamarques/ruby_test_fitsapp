@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'messages/new'
+
   get 'chats/new'
 
   get 'users/new'
