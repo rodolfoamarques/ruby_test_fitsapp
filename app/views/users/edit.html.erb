@@ -34,7 +34,12 @@
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
+
     <% end %>
+
+    <div style="margin-top: 15px;">
+      <%= link_to "Delete", @user, class: "btn btn-danger btn-block", method: :delete, data: { confirm: "You sure?" } %>
+    </div>
 
   </div>
 </div>
