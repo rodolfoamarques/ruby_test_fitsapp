@@ -3,7 +3,8 @@ require 'test_helper'
 class UsersLoginTest < ActionDispatch::IntegrationTest
 
   def setup
-    @user = users(:two)
+    @user_one = users(:one)
+    @user_two = users(:two)
   end
 
   test "login with invalid information" do
@@ -18,7 +19,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "login with valid information" do
     get login_path
-    post login_path, params: { session: { email: @user.email,  password: 'password' } }
+    post login_path, params: { session: { email: @user_one.email,  password: 'password' } }
     assert_redirected_to chatlist_path
     follow_redirect!
     assert_template 'chats/new'
@@ -29,7 +30,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "login with valid information followed by logout" do
     get login_path
-    post login_path, params: { session: { email: @user.email, password: 'password' } }
+    post login_path, params: { session: { email: @user_one.email, password: 'password' } }
     assert is_logged_in?
     assert_redirected_to chatlist_path
     follow_redirect!
