@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  get 'messages/new'
 
-  get '/chatlist', to: 'chats#new'
+  root 'pages#home'
 
   get '/signup', to: 'users#new'
 
-  root 'pages#home'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
+  get '/chatlist', to: 'chats#new'
+
+  get 'messages/new'
 
   resources :users
 
