@@ -9,10 +9,10 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 
 
@@ -63,6 +63,13 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+
+/* other sass files */
+@import "chats.scss";
+@import "messages.scss";
+@import "pages.scss";
+@import "sessions.scss";
+@import "users.scss";
 
 
 /* header */
