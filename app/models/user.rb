@@ -1,8 +1,12 @@
 class User < ApplicationRecord
+
   has_many :sent_messages, :class_name => 'Message', :foreign_key => 'from_user_id'
   has_many :received_messages, :class_name => 'Message', :foreign_key => 'to_user_id'
 
   before_save { self.email = email.downcase }
+
+  VALID_USERTYPE_REGEX = /\A(user|trainer)\z/i
+  validates :user_type,  presence: true, length: { maximum: 10 }, format: { with: VALID_USERTYPE_REGEX }
 
   validates :name,  presence: true, length: { maximum: 100 }
 

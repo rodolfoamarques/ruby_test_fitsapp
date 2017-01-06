@@ -3,9 +3,13 @@
 one:
   name: Example User A
   email: user_a@example.com
+  user_type: trainer
+  user_type: trainer
   password_digest: <%= User.digest('password') %>
 
 two:
   name: Example User B
   email: user_b@example.com
+  user_type: trainer
+  user_type: user
   password_digest: <%= User.digest('password') %>

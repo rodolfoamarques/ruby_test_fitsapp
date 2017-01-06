@@ -3,11 +3,37 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
   def setup
-    @user = User.new(name: "Example User", email: "user@example.com", password: "some_pass", password_confirmation: "some_pass")
+    @user = User.new(name: "Example User", email: "user@example.com", password: "some_pass", password_confirmation: "some_pass", user_type: "user")
   end
 
   test "should be valid" do
     assert @user.valid?
+  end
+
+  test "user_type should be present" do
+    @user.user_type = ""
+    assert_not @user.valid?
+  end
+
+  test "user_type should not be too long" do
+    @user.user_type = "big_user_type"
+    assert_not @user.valid?
+  end
+
+  test "user_type validation should accept valid user_types" do
+    valid_user_types = %w[user trainer]
+    valid_user_types.each do |valid_user_type|
+      @user.user_type = valid_user_type
+      assert @user.valid?, "#{valid_user_type.inspect} should be valid"
+    end
+  end
+
+  test "user_type validation should reject invalid user_types" do
+    invalid_user_types = %w[this that other]
+    invalid_user_types.each do |invalid_user_type|
+      @user.user_type = invalid_user_type
+      assert_not @user.valid?, "#{invalid_user_type.inspect} should be invalid"
+    end
   end
 
   test "name should be present" do
