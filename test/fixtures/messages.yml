@@ -9,13 +9,13 @@ two:
   created_at: <%= 41.minutes.ago %>
 
 three:
-  message: MyTextB
+  message: MyTextC
   created_at: <%= 10.minutes.ago %>
 
 four:
-  message: MyTextB
+  message: MyTextD
   created_at: <%= 20.minutes.ago %>
 
 five:
-  message: MyTextB
+  message: MyTextE
   created_at: <%= 1.minutes.ago %>

@@ -34,7 +34,7 @@
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
       <%= f.label :user_type %>
-      <%= f.select :user_type, ['user', 'trainer'], class: 'form-control' %>
+      <%= f.select(:user_type, options_for_select([['user', 'user'], ['trainer', 'trainer']])) %>
 
       <%= f.submit "Create account", class: "btn btn-primary" %>
 

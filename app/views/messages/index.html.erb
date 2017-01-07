@@ -1,0 +1,26 @@
+<% provide(:title, 'All Messages') %>
+<div class="container">
+    <div class='page-header'>
+        <div class='btn-toolbar pull-right'>
+            <div class='btn-group'>
+                <%= link_to "+", new_message_path, class: "btn btn-success" %>
+            </div>
+        </div>
+         <h1>Here are all your messages:</h1>
+    </div>
+</div>
+
+<ul class="messages">
+  <% @messages.each do |message| %>
+    <li id="message-<%= message.id %>">
+      <h3 class="content">
+        <%= message.to_user.user_type %> -
+        <b><%= message.to_user.name %></b>
+      </h3>
+      <span class="timestamp">
+        | Sent <%= time_ago_in_words(message.created_at) %> ago.
+      </span>
+      <p class="content"><%= message.message %></p>
+    </li>
+  <% end %>
+</ul>

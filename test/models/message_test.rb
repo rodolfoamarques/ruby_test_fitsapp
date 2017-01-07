@@ -5,7 +5,7 @@ class MessageTest < ActiveSupport::TestCase
   def setup
     @user_one = users(:one)
     @user_two = users(:two)
-    @message = @user.messages.build( message: "Lorem ipsum", to_user_id: @user_two.id )
+    @message = Message.new( message: "Lorem ipsum", from_user_id: @user_one.id, to_user_id: @user_two.id )
   end
 
   test "should be valid" do
@@ -28,7 +28,7 @@ class MessageTest < ActiveSupport::TestCase
   end
 
   test "order should be most recent first" do
-    assert_equal messages( :five ), Message.first
+    assert_equal messages(:three), Message.first
   end
 
 end
