@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get '/chatlist', to: 'chats#new'
-
   get '/new_message', to: 'messages#new'
 
   resources :users
